@@ -1,0 +1,10 @@
+---
+- name: Touch a file, 
+  file:
+    path: /etc/foo.conf
+    state: touch
+    mode: u=rw,g=r,o=r
+- name: Install the latest version of vim
+  yum:
+    name: vim
+    state: latest

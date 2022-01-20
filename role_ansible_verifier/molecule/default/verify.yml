@@ -1,0 +1,14 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+  - name: check if /etc/foo.conf file exists
+    stat: 
+      path: /etc/foo.conf
+    register: foo
+  - name: Assertion if /etc/foo.conf exist
+    assert:
+      that: foo.stat.exists == True
